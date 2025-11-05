@@ -12,14 +12,17 @@ html {
 
 body {
     font-family: 'Segoe UI', sans-serif;
-    background-color: #f4f6f8;
-    color: #222;
+    /* PALETA 3: Fundo Bege/Creme */
+    background-color: #FAF7F0; 
+    /* PALETA 3: Texto Marrom Escuro */
+    color: #3D3B30; 
     line-height: 1.6;
 }
 
 /* NOVO HEADER (COM FLEXBOX E STICKY) */
 header {
-    background-color: #1e88e5;
+    /* PALETA 3: Verde-Oliva Principal */
+    background-color: #5F7161; 
     color: white;
     padding: 1.5rem 1rem;
     position: sticky; /* Faz o menu grudar no topo */
@@ -57,9 +60,11 @@ header nav {
 }
 
 /* NOVO: Estilo dos botões de navegação (ajustados) */
-header nav .nav-link { 
-    background: white;
-    color: #1e88e5;
+header nav .nav-link {  
+    /* PALETA 3: Fundo dos botões (Branco/Bege) */
+    background: #FAF7F0; 
+    /* PALETA 3: Cor do texto do botão (Verde-Oliva) */
+    color: #5F7161; 
     border: none;
     margin: 0 0.2rem;
     padding: 0.4rem 0.8rem; /* Botões um pouco menores */
@@ -67,12 +72,13 @@ header nav .nav-link {
     font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
-    text-decoration: none; 
-    display: inline-block; 
+    text-decoration: none;  
+    display: inline-block;  
 }
 
 header nav .nav-link:hover {
-    background-color: #e3f2fd;
+    /* Um tom de bege um pouco mais escuro para o hover */
+    background-color: #F0EADF; 
 }
 
 
@@ -84,7 +90,7 @@ main {
 }
 
 .card {
-    background: white;
+    background: white; /* Mantém branco para contraste */
     border-radius: 12px;
     padding: 1.5rem;
     margin-bottom: 1.5rem;
@@ -97,7 +103,8 @@ main {
 }
 
 .card h2 {
-    color: #1e88e5;
+    /* PALETA 3: Verde-Oliva Principal */
+    color: #5F7161; 
     margin-bottom: 1rem;
 }
 
@@ -114,7 +121,8 @@ ul {
 
 .card ul li::before {
     content: "•";
-    color: #1e88e5;
+    /* PALETA 3: Cor de Destaque (Terracota) para os bullets */
+    color: #B06A56; 
     font-weight: bold;
     display: inline-block;
     width: 1em;
@@ -125,7 +133,7 @@ ul {
 /* SEÇÃO DE PROJETOS */
 .project-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  
     gap: 1.5rem;
 }
 
@@ -133,11 +141,12 @@ ul {
     border: 1px solid #e0e0e0;
     padding: 1rem;
     border-radius: 8px;
-    background-color: #f9f9f9; 
+    background-color: #f9f9f9;  
 }
 
 .project-item h3 {
-    color: #1565c0;
+    /* PALETA 3: Verde-Oliva Principal */
+    color: #5F7161; 
     margin-bottom: 0.5rem;
 }
 
@@ -156,7 +165,7 @@ ul {
 }
 
 .github-link {
-    background-color: #333; /* Cor escura padrão do GitHub */
+    background-color: #333; /* Cor escura padrão do GitHub (pode manter) */
     color: white;
 }
 
@@ -173,7 +182,8 @@ ul {
 
 /* Estilo para os botões de contato (<a>.contact-button-link) */
 .contact-buttons .contact-button-link {
-    background-color: #1e88e5;
+    /* PALETA 3: Cor de Destaque (Terracota) */
+    background-color: #B06A56; 
     color: white;
     border: none;
     padding: 0.8rem 1.4rem;
@@ -181,18 +191,21 @@ ul {
     cursor: pointer;
     font-weight: 600;
     transition: background 0.3s;
-    text-decoration: none; 
+    text-decoration: none;  
 }
 
 .contact-buttons .contact-button-link:hover {
-    background-color: #1565c0;
+    /* Um tom de terracota mais escuro para o hover */
+    background-color: #9A5A48; 
 }
 
 /* RODAPÉ */
 footer {
     text-align: center;
     padding: 1rem;
-    background-color: #e3f2fd;
-    color: #222;
+    /* PALETA 3: Verde-Oliva Principal */
+    background-color: #5F7161; 
+    /* PALETA 3: Texto Bege/Creme para contraste */
+    color: #FAF7F0; 
     font-size: 0.9rem;
 }
