@@ -8,16 +8,17 @@
 </head>
 <body>
   <header>
-    <h1>Arthur Risson</h1>
-    <p>Estudante de Ciências da Computação | Desenvolvedor em formação</p>
-    <nav>
-      <button onclick="scrollToSection('sobre')">Sobre</button>
-      <button onclick="scrollToSection('formacao')">Formação</button>
-      <button onclick="scrollToSection('experiencia')">Experiência</button>
-      <button onclick="scrollToSection('habilidades')">Habilidades</button>
-      <button onclick="scrollToSection('contato')">Contato</button>
-    </nav>
-  </header>
+    <h1>Arthur Risson</h1>
+    <p>Estudante de Ciências da Computação | Desenvolvedor em formação</p>
+    <nav>
+        <a href="#sobre" class="nav-link">Sobre</a>
+        <a href="#formacao" class="nav-link">Formação</a>
+        <a href="#experiencia" class="nav-link">Experiência</a>
+        <a href="#habilidades" class="nav-link">Habilidades</a>
+        <a href="#projetos" class="nav-link">Projetos</a>         
+        <a href="#contato" class="nav-link">Contato</a>
+    </nav>
+</header>
 
   <main>
     <section id="sobre" class="card">
@@ -42,27 +43,41 @@
     </section>
 
     <section id="habilidades" class="card">
-      <h2>Habilidades</h2>
-      <ul>
-        <li>Python (intermediário): Pygame, Tkinter, OOP</li>
-        <li>Java (intermediário): Programação orientada a objetos</li>
-        <li>JavaScript (básico), HTML e CSS (intermediário)</li>
-        <li>Banco de dados: JSON e SQL (básico/intermediário)</li>
-        <li>Versionamento: Git e GitHub</li>
-        <li>Pacote Office (Excel, Word, PowerPoint – intermediário)</li>
-        <li>Inglês intermediário | CNH B</li>
-      </ul>
-    </section>
+    <h2>Habilidades</h2>
+    <ul>
+        <li>Python (intermediário): Pygame, Tkinter, OOP</li>
+        <li>Java (intermediário): Programação orientada a objetos</li>
+        <li>JavaScript (básico), HTML e CSS (intermediário)</li>
+        <li>Banco de dados: JSON e SQL (básico/intermediário)</li>
+        <li>Versionamento: Git e GitHub</li>
+        <li>Pacote Office (Excel, Word, PowerPoint – intermediário)</li>
+        <li>Inglês intermediário | CNH B</li>
+    </ul>
+</section>
 
-    <section id="contato" class="card">
-      <h2>Contato</h2>
-      <div class="contact-buttons">
-        <button onclick="openLink('mailto:rissoonarthur19@gmail.com')">E-mail</button>
-        <button onclick="openLink('tel:+5554997085314')">Telefone</button>
-        <button onclick="openLink('https://github.com/ArthurRisson')">GitHub</button>
-        <button onclick="openLink('https://arthurrisson.github.io/Site-Pessoal/')">Site Pessoal</button>
-      </div>
-    </section>
+<section id="projetos" class="card">
+    <h2>Projetos e Código</h2>
+    <div class="project-list">
+        <div class="project-item">
+            <h3>Nome do Projeto em Python (Exemplo)</h3>
+            <p>Breve descrição: Desenvolvi um sistema simples usando [Habilidade] para resolver [Problema].</p>
+            <p>Habilidades demonstradas: Python, Git, OOP.</p>
+            <div class="project-links">
+            <a href="LINK_DO_GITHUB_DO_PROJETO" target="_blank" class="project-link github-link">Ver Código (GitHub)</a>
+            </div>
+        </div>
+            </div>
+</section>
+
+<section id="contato" class="card">
+    <h2>Contato</h2>
+    <div class="contact-buttons">
+        <a href="mailto:rissonarthur19@gmail.com" target="_blank" class="contact-button-link">E-mail</a>
+        <a href="tel:+5554997085314" class="contact-button-link">Telefone</a>
+        <a href="https://github.com/ArthurRisson" target="_blank" class="contact-button-link">GitHub</a>
+        <a href="https://www.linkedin.com/in/arthur-risson-340019352/" target="_blank" class="contact-button-link">LinkedIn</a>
+    </div>
+</section>
   </main>
 
   <footer>
