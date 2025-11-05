@@ -1,101 +1,167 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f4f6f8;
-  color: #222;
-  line-height: 1.6;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f6f8;
+    color: #222;
+    line-height: 1.6;
 }
 
 header {
-  background-color: #1e88e5;
-  color: white;
-  text-align: center;
-  padding: 2rem 1rem;
+    background-color: #1e88e5;
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
 }
 
 header h1 {
-  font-size: 2.4rem;
-  margin-bottom: 0.5rem;
+    font-size: 2.4rem;
+    margin-bottom: 0.5rem;
 }
 
 header nav {
-  margin-top: 1rem;
+    margin-top: 1rem;
 }
 
-header button {
-  background: white;
-  color: #1e88e5;
-  border: none;
-  margin: 0.3rem;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
+/* NOVO: Estiliza os links de navegação (<a>.nav-link) */
+header nav .nav-link { 
+    background: white;
+    color: #1e88e5;
+    border: none;
+    margin: 0.3rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none; /* Remove o sublinhado */
+    display: inline-block; /* Permite padding e margin como um botão */
 }
 
-header button:hover {
-  background-color: #e3f2fd;
+header nav .nav-link:hover {
+    background-color: #e3f2fd;
 }
 
 main {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 0 1rem;
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
 }
 
 .card {
-  background: white;
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s;
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s;
 }
 
 .card:hover {
-  transform: scale(1.01);
+    transform: scale(1.01);
 }
 
 .card h2 {
-  color: #1e88e5;
-  margin-bottom: 1rem;
+    color: #1e88e5;
+    margin-bottom: 1rem;
 }
 
 ul {
-  list-style-type: none; /* remove as bolinhas */
+    list-style-type: none; /* remove as bolinhas */
 }
 
+/* Estilo de lista para Experiência/Formação */
+.card ul li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+/* Opcional: Adicionar um bullet point customizado */
+.card ul li::before {
+    content: "•";
+    color: #1e88e5;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+
+/* Estilos para a seção de projetos */
+.project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 1.5rem;
+}
+
+.project-item {
+    border: 1px solid #e0e0e0;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: #f9f9f9; 
+}
+
+.project-item h3 {
+    color: #1565c0;
+    margin-bottom: 0.5rem;
+}
+
+.project-links {
+    margin-top: 1rem;
+}
+
+.project-link {
+    display: inline-block;
+    padding: 8px 12px;
+    margin-right: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.github-link {
+    background-color: #333; /* Cor escura padrão do GitHub */
+    color: white;
+}
+
+.github-link:hover {
+    background-color: #555;
+}
+
+/* Estilos para a seção de contato */
 .contact-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
-.contact-buttons button {
-  background-color: #1e88e5;
-  color: white;
-  border: none;
-  padding: 0.8rem 1.4rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background 0.3s;
+/* NOVO: Estilo para os botões de contato (agora <a>.contact-button-link) */
+.contact-buttons .contact-button-link {
+    background-color: #1e88e5;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.4rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+    text-decoration: none; /* Remove o sublinhado */
 }
 
-.contact-buttons button:hover {
-  background-color: #1565c0;
+.contact-buttons .contact-button-link:hover {
+    background-color: #1565c0;
 }
 
 footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: #e3f2fd;
-  color: #222;
-  font-size: 0.9rem;
+    text-align: center;
+    padding: 1rem;
+    background-color: #e3f2fd;
+    color: #222;
+    font-size: 0.9rem;
 }
