@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arthur Risson - Portfólio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Arthur Risson</h1>
+    <p>Estudante de Ciências da Computação | Desenvolvedor em formação</p>
+    <nav>
+      <button onclick="scrollToSection('sobre')">Sobre</button>
+      <button onclick="scrollToSection('formacao')">Formação</button>
+      <button onclick="scrollToSection('experiencia')">Experiência</button>
+      <button onclick="scrollToSection('habilidades')">Habilidades</button>
+      <button onclick="scrollToSection('contato')">Contato</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="sobre" class="card">
+      <h2>Resumo</h2>
+      <p>Sou estudante de Ciências da Computação na ATITUS Educação, em busca de oportunidades de estágio ou vaga júnior na área de TI. Tenho base sólida em Python, Java e lógica de programação, além de experiência prática em suporte técnico.</p>
+    </section>
+
+    <section id="formacao" class="card">
+      <h2>Formação</h2>
+      <ul>
+        <li>Ciências da Computação – ATITUS Educação (2º semestre, 2025)</li>
+        <li>Ensino Médio Completo – Colégio Tiradentes da Brigada Militar de Passo Fundo (2022–2024)</li>
+      </ul>
+    </section>
+
+    <section id="experiencia" class="card">
+      <h2>Experiência Profissional</h2>
+      <ul>
+        <li><strong>Estagiário de TI – Secretaria de Finanças de Passo Fundo (2025 – atual):</strong> Suporte técnico a computadores, instalação de softwares e auxílio em sistemas internos.</li>
+        <li><strong>Auxiliar de Escritório – Inovve (6 meses):</strong> Emissão de notas fiscais, relatórios no Excel e apoio administrativo.</li>
+      </ul>
+    </section>
+
+    <section id="habilidades" class="card">
+      <h2>Habilidades</h2>
+      <ul>
+        <li>Python (intermediário): Pygame, Tkinter, OOP</li>
+        <li>Java (intermediário): Programação orientada a objetos</li>
+        <li>JavaScript (básico), HTML e CSS (intermediário)</li>
+        <li>Banco de dados: JSON e SQL (básico/intermediário)</li>
+        <li>Versionamento: Git e GitHub</li>
+        <li>Pacote Office (Excel, Word, PowerPoint – intermediário)</li>
+        <li>Inglês intermediário | CNH B</li>
+      </ul>
+    </section>
+
+    <section id="contato" class="card">
+      <h2>Contato</h2>
+      <div class="contact-buttons">
+        <button onclick="openLink('mailto:rissoonarthur19@gmail.com')">E-mail</button>
+        <button onclick="openLink('tel:+5554997085314')">Telefone</button>
+        <button onclick="openLink('https://github.com/ArthurRisson')">GitHub</button>
+        <button onclick="openLink('https://arthurrisson.github.io/Site-Pessoal/')">Site Pessoal</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Arthur Risson - Todos os direitos reservados</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
