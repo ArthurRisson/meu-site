@@ -1,3 +1,9 @@
+/* COMPORTAMENTO GERAL */
+html {
+    /* NOVO: Adiciona a rolagem suave */
+    scroll-behavior: smooth;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -11,41 +17,66 @@ body {
     line-height: 1.6;
 }
 
+/* NOVO HEADER (COM FLEXBOX E STICKY) */
 header {
     background-color: #1e88e5;
     color: white;
-    text-align: center;
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem;
+    position: sticky; /* Faz o menu grudar no topo */
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-header h1 {
-    font-size: 2.4rem;
-    margin-bottom: 0.5rem;
+.header-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* Título na esquerda, nav na direita */
+    align-items: center;
+    flex-wrap: wrap; /* Permite quebrar em telas pequenas */
+}
+
+.header-title {
+    text-align: left;
+}
+
+.header-title h1 {
+    font-size: 2rem; /* Tamanho ajustado */
+    margin: 0;
+}
+
+.header-title p {
+    font-size: 0.9rem;
+    margin: 0;
+    opacity: 0.9;
 }
 
 header nav {
-    margin-top: 1rem;
+    margin-top: 0; /* Não precisa mais da margem */
 }
 
-/* NOVO: Estiliza os links de navegação (<a>.nav-link) */
+/* NOVO: Estilo dos botões de navegação (ajustados) */
 header nav .nav-link { 
     background: white;
     color: #1e88e5;
     border: none;
-    margin: 0.3rem;
-    padding: 0.5rem 1rem;
+    margin: 0 0.2rem;
+    padding: 0.4rem 0.8rem; /* Botões um pouco menores */
     border-radius: 8px;
     font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
-    text-decoration: none; /* Remove o sublinhado */
-    display: inline-block; /* Permite padding e margin como um botão */
+    text-decoration: none; 
+    display: inline-block; 
 }
 
 header nav .nav-link:hover {
     background-color: #e3f2fd;
 }
 
+
+/* CONTEÚDO PRINCIPAL (MAIN) E CARDS */
 main {
     max-width: 900px;
     margin: 2rem auto;
@@ -70,18 +101,17 @@ main {
     margin-bottom: 1rem;
 }
 
+/* LISTAS (PARA FORMAÇÃO, EXPERIÊNCIA, HABILIDADES) */
 ul {
     list-style-type: none; /* remove as bolinhas */
 }
 
-/* Estilo de lista para Experiência/Formação */
 .card ul li {
     margin-bottom: 0.5rem;
     padding-left: 1.5rem;
     position: relative;
 }
 
-/* Opcional: Adicionar um bullet point customizado */
 .card ul li::before {
     content: "•";
     color: #1e88e5;
@@ -92,7 +122,7 @@ ul {
 }
 
 
-/* Estilos para a seção de projetos */
+/* SEÇÃO DE PROJETOS */
 .project-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
@@ -134,14 +164,14 @@ ul {
     background-color: #555;
 }
 
-/* Estilos para a seção de contato */
+/* SEÇÃO DE CONTATO */
 .contact-buttons {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
 }
 
-/* NOVO: Estilo para os botões de contato (agora <a>.contact-button-link) */
+/* Estilo para os botões de contato (<a>.contact-button-link) */
 .contact-buttons .contact-button-link {
     background-color: #1e88e5;
     color: white;
@@ -151,13 +181,14 @@ ul {
     cursor: pointer;
     font-weight: 600;
     transition: background 0.3s;
-    text-decoration: none; /* Remove o sublinhado */
+    text-decoration: none; 
 }
 
 .contact-buttons .contact-button-link:hover {
     background-color: #1565c0;
 }
 
+/* RODAPÉ */
 footer {
     text-align: center;
     padding: 1rem;
