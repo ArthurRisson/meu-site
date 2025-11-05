@@ -11,28 +11,28 @@ html {
 
 body {
     font-family: 'Segoe UI', sans-serif;
-    /* FUNDO VIBRANTE (ESSENCIAL PARA GLASSMORPHISM) */
-    background: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
-    background-attachment: fixed; /* Impede o gradiente de rolar com o conteúdo */
-    color: #222; /* Texto escuro para legibilidade */
+    /* FUNDO MAIS SUAVE E CLARO PARA GLASSMORPHISM (Estilo Apple) */
+    background: linear-gradient(135deg, #f0f2f5 0%, #e0e6ed 100%);
+    background-attachment: fixed;
+    color: #333; /* Texto cinza escuro para legibilidade */
     line-height: 1.6;
     min-height: 100vh;
 }
 
-/* HEADER (AGORA EM VIDRO) */
+/* HEADER (AGORA EM VIDRO CLARO) */
 header {
-    /* EFEITO DE VIDRO */
-    background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    /* EFEITO DE VIDRO CLARO */
+    background: rgba(255, 255, 255, 0.4); /* Mais transparente, cor mais suave */
+    backdrop-filter: blur(15px); /* Um pouco mais de desfoque */
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Borda mais sutil */
     
-    color: #222; /* Texto escuro */
+    color: #333; /* Texto cinza escuro */
     padding: 1.5rem 1rem;
     position: sticky;
     top: 0;
     z-index: 10;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra mais sutil */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); /* Sombra mais difusa */
 }
 
 .header-container {
@@ -56,22 +56,22 @@ header {
 .header-title p {
     font-size: 0.9rem;
     margin: 0;
-    opacity: 0.8; /* Opacidade ajustada para texto escuro */
+    opacity: 0.7; /* Opacidade para o subtítulo */
 }
 
 header nav {
     margin-top: 0;
 }
 
-/* Botões de navegação com estilo minimalista */
+/* Botões de navegação com estilo minimalista e hover sutil */
 header nav .nav-link {  
-    background: transparent; /* Sem fundo */
-    color: #222;
+    background: transparent;
+    color: #333;
     border: none;
     margin: 0 0.2rem;
     padding: 0.4rem 0.8rem;
     border-radius: 8px;
-    font-weight: 600; /* Mais peso para destacar */
+    font-weight: 600;
     cursor: pointer;
     transition: 0.3s;
     text-decoration: none;  
@@ -79,4 +79,138 @@ header nav .nav-link {
 }
 
 header nav .nav-link:hover {
-    /* Fundo de hover
+    background-color: rgba(0, 0, 0, 0.05); /* Hover cinza bem suave */
+}
+
+
+/* CONTEÚDO PRINCIPAL (MAIN) E CARDS DE VIDRO CLARO */
+main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.card {
+    /* EFEITO DE VIDRO CLARO */
+    background: rgba(255, 255, 255, 0.5); /* Mais opaco para o conteúdo */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1); /* Sombra mais sutil e cinza */
+    
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: none; 
+}
+
+.card h2 {
+    color: #333; /* Título cinza escuro */
+    margin-bottom: 1rem;
+}
+
+/* LISTAS */
+ul {
+    list-style-type: none;
+}
+
+.card ul li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.card ul li::before {
+    content: "•";
+    color: #778899; /* Um cinza-azul suave para os bullets */
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+
+/* SEÇÃO DE PROJETOS */
+.project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  
+    gap: 1.5rem;
+}
+
+.project-item {
+    /* Fundo interno para destacar, mas ainda sutil */
+    background-color: rgba(255, 255, 255, 0.6); 
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.project-item h3 {
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.project-links {
+    margin-top: 1rem;
+}
+
+.project-link {
+    display: inline-block;
+    padding: 8px 12px;
+    margin-right: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.github-link {
+    background-color: #444; /* Um cinza um pouco mais claro para o GitHub */
+    color: white;
+}
+
+.github-link:hover {
+    background-color: #666;
+}
+
+/* SEÇÃO DE CONTATO */
+.contact-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* Botões de contato com cor de destaque sutil */
+.contact-buttons .contact-button-link {
+    background-color: #a0aec0; /* Um cinza-azul médio para o botão */
+    color: white;
+    border: none;
+    padding: 0.8rem 1.4rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+    text-decoration: none;  
+}
+
+.contact-buttons .contact-button-link:hover {
+    background-color: #8c9ba7; /* Tom um pouco mais escuro no hover */
+}
+
+/* RODAPÉ DE VIDRO SUTIL */
+footer {
+    text-align: center;
+    padding: 1rem;
+    
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    
+    color: #333;
+    font-size: 0.9rem;
+}
