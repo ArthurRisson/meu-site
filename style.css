@@ -1,6 +1,5 @@
 /* COMPORTAMENTO GERAL */
 html {
-    /* NOVO: Adiciona a rolagem suave */
     scroll-behavior: smooth;
 }
 
@@ -12,32 +11,37 @@ html {
 
 body {
     font-family: 'Segoe UI', sans-serif;
-    /* PALETA 3: Fundo Bege/Creme */
-    background-color: #FAF7F0; 
-    /* PALETA 3: Texto Marrom Escuro */
-    color: #3D3B30; 
+    /* FUNDO VIBRANTE (ESSENCIAL PARA GLASSMORPHISM) */
+    background: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+    background-attachment: fixed; /* Impede o gradiente de rolar com o conteúdo */
+    color: #222; /* Texto escuro para legibilidade */
     line-height: 1.6;
+    min-height: 100vh;
 }
 
-/* NOVO HEADER (COM FLEXBOX E STICKY) */
+/* HEADER (AGORA EM VIDRO) */
 header {
-    /* PALETA 3: Verde-Oliva Principal */
-    background-color: #5F7161; 
-    color: white;
+    /* EFEITO DE VIDRO */
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    
+    color: #222; /* Texto escuro */
     padding: 1.5rem 1rem;
-    position: sticky; /* Faz o menu grudar no topo */
+    position: sticky;
     top: 0;
     z-index: 10;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra mais sutil */
 }
 
 .header-container {
     max-width: 900px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between; /* Título na esquerda, nav na direita */
+    justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* Permite quebrar em telas pequenas */
+    flex-wrap: wrap;
 }
 
 .header-title {
@@ -45,31 +49,29 @@ header {
 }
 
 .header-title h1 {
-    font-size: 2rem; /* Tamanho ajustado */
+    font-size: 2rem;
     margin: 0;
 }
 
 .header-title p {
     font-size: 0.9rem;
     margin: 0;
-    opacity: 0.9;
+    opacity: 0.8; /* Opacidade ajustada para texto escuro */
 }
 
 header nav {
-    margin-top: 0; /* Não precisa mais da margem */
+    margin-top: 0;
 }
 
-/* NOVO: Estilo dos botões de navegação (ajustados) */
+/* Botões de navegação com estilo minimalista */
 header nav .nav-link {  
-    /* PALETA 3: Fundo dos botões (Branco/Bege) */
-    background: #FAF7F0; 
-    /* PALETA 3: Cor do texto do botão (Verde-Oliva) */
-    color: #5F7161; 
+    background: transparent; /* Sem fundo */
+    color: #222;
     border: none;
     margin: 0 0.2rem;
-    padding: 0.4rem 0.8rem; /* Botões um pouco menores */
+    padding: 0.4rem 0.8rem;
     border-radius: 8px;
-    font-weight: bold;
+    font-weight: 600; /* Mais peso para destacar */
     cursor: pointer;
     transition: 0.3s;
     text-decoration: none;  
@@ -77,135 +79,4 @@ header nav .nav-link {
 }
 
 header nav .nav-link:hover {
-    /* Um tom de bege um pouco mais escuro para o hover */
-    background-color: #F0EADF; 
-}
-
-
-/* CONTEÚDO PRINCIPAL (MAIN) E CARDS */
-main {
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-}
-
-.card {
-    background: white; /* Mantém branco para contraste */
-    border-radius: 12px;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s;
-}
-
-.card:hover {
-    transform: scale(1.01);
-}
-
-.card h2 {
-    /* PALETA 3: Verde-Oliva Principal */
-    color: #5F7161; 
-    margin-bottom: 1rem;
-}
-
-/* LISTAS (PARA FORMAÇÃO, EXPERIÊNCIA, HABILIDADES) */
-ul {
-    list-style-type: none; /* remove as bolinhas */
-}
-
-.card ul li {
-    margin-bottom: 0.5rem;
-    padding-left: 1.5rem;
-    position: relative;
-}
-
-.card ul li::before {
-    content: "•";
-    /* PALETA 3: Cor de Destaque (Terracota) para os bullets */
-    color: #B06A56; 
-    font-weight: bold;
-    display: inline-block;
-    width: 1em;
-    margin-left: -1em;
-}
-
-
-/* SEÇÃO DE PROJETOS */
-.project-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  
-    gap: 1.5rem;
-}
-
-.project-item {
-    border: 1px solid #e0e0e0;
-    padding: 1rem;
-    border-radius: 8px;
-    background-color: #f9f9f9;  
-}
-
-.project-item h3 {
-    /* PALETA 3: Verde-Oliva Principal */
-    color: #5F7161; 
-    margin-bottom: 0.5rem;
-}
-
-.project-links {
-    margin-top: 1rem;
-}
-
-.project-link {
-    display: inline-block;
-    padding: 8px 12px;
-    margin-right: 10px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: bold;
-}
-
-.github-link {
-    background-color: #333; /* Cor escura padrão do GitHub (pode manter) */
-    color: white;
-}
-
-.github-link:hover {
-    background-color: #555;
-}
-
-/* SEÇÃO DE CONTATO */
-.contact-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-/* Estilo para os botões de contato (<a>.contact-button-link) */
-.contact-buttons .contact-button-link {
-    /* PALETA 3: Cor de Destaque (Terracota) */
-    background-color: #B06A56; 
-    color: white;
-    border: none;
-    padding: 0.8rem 1.4rem;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background 0.3s;
-    text-decoration: none;  
-}
-
-.contact-buttons .contact-button-link:hover {
-    /* Um tom de terracota mais escuro para o hover */
-    background-color: #9A5A48; 
-}
-
-/* RODAPÉ */
-footer {
-    text-align: center;
-    padding: 1rem;
-    /* PALETA 3: Verde-Oliva Principal */
-    background-color: #5F7161; 
-    /* PALETA 3: Texto Bege/Creme para contraste */
-    color: #FAF7F0; 
-    font-size: 0.9rem;
-}
+    /* Fundo de hover
