@@ -11,28 +11,67 @@ html {
 
 body {
     font-family: 'Segoe UI', sans-serif;
-    /* FUNDO MAIS SUAVE E CLARO PARA GLASSMORPHISM (Estilo Apple) */
-    background: linear-gradient(135deg, #f0f2f5 0%, #e0e6ed 100%);
-    background-attachment: fixed;
-    color: #333; /* Texto cinza escuro para legibilidade */
+    /* Fundo base neutro */
+    background-color: #f0f2f5;
+    color: #333;
     line-height: 1.6;
     min-height: 100vh;
+    
+    /* Necessário para os orbes de fundo ficarem atrás do vidro */
+    position: relative;
+    overflow-x: hidden;
+    z-index: 0;
 }
 
-/* HEADER (AGORA EM VIDRO CLARO) */
+/* --- ELEMENTOS DE FUNDO (ORBES COLORIDOS) --- */
+body::before, body::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1; /* Fica atrás de tudo */
+    filter: blur(80px); /* O "glow" suave das cores */
+    opacity: 0.6;
+    animation: floatOrb 10s infinite alternate ease-in-out;
+}
+
+/* Orbe 1 (Roxo/Azul) - Topo Esquerda */
+body::before {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    top: -50px;
+    left: -100px;
+}
+
+/* Orbe 2 (Laranja/Rosa) - Baixo Direita */
+body::after {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(to right, #ff5f6d, #ffc371);
+    bottom: 50px;
+    right: -50px;
+    animation-delay: -5s; /* Começa em tempo diferente */
+}
+
+@keyframes floatOrb {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(20px, 40px); }
+}
+
+/* --- HEADER (VIDRO FOSCO) --- */
 header {
-    /* EFEITO DE VIDRO CLARO */
-    background: rgba(255, 255, 255, 0.4); /* Mais transparente, cor mais suave */
-    backdrop-filter: blur(15px); /* Um pouco mais de desfoque */
+    /* Vidro mais transparente para o menu */
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Borda mais sutil */
     
-    color: #333; /* Texto cinza escuro */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    
     padding: 1.5rem 1rem;
     position: sticky;
     top: 0;
-    z-index: 10;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); /* Sombra mais difusa */
+    z-index: 100; /* Garante que fica acima dos cards */
 }
 
 .header-container {
@@ -44,46 +83,40 @@ header {
     flex-wrap: wrap;
 }
 
-.header-title {
-    text-align: left;
-}
-
 .header-title h1 {
     font-size: 2rem;
     margin: 0;
+    font-weight: 700;
+    letter-spacing: -0.5px;
 }
 
 .header-title p {
     font-size: 0.9rem;
     margin: 0;
-    opacity: 0.7; /* Opacidade para o subtítulo */
+    opacity: 0.8;
 }
 
-header nav {
-    margin-top: 0;
-}
-
-/* Botões de navegação com estilo minimalista e hover sutil */
-header nav .nav-link {  
+/* Navegação */
+header nav .nav-link {
     background: transparent;
     color: #333;
     border: none;
     margin: 0 0.2rem;
-    padding: 0.4rem 0.8rem;
-    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    border-radius: 20px; /* Mais arredondado combina com vidro */
     font-weight: 600;
     cursor: pointer;
-    transition: 0.3s;
-    text-decoration: none;  
-    display: inline-block;  
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
 }
 
 header nav .nav-link:hover {
-    background-color: rgba(0, 0, 0, 0.05); /* Hover cinza bem suave */
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
-
-/* CONTEÚDO PRINCIPAL (MAIN) E CARDS DE VIDRO CLARO */
+/* --- CONTEÚDO PRINCIPAL (CARDS DE VIDRO) --- */
 main {
     max-width: 900px;
     margin: 2rem auto;
@@ -91,192 +124,266 @@ main {
 }
 
 .card {
-    /* EFEITO DE VIDRO CLARO */
-    background: rgba(255, 255, 255, 0.5); /* Mais opaco para o conteúdo */
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1); /* Sombra mais sutil e cinza */
+    /* O SEGREDO DO GLASSMORPHISM */
+    /* Gradiente diagonal: Canto sup. esq. é mais branco (luz) */
+    background: linear-gradient(
+        135deg, 
+        rgba(255, 255, 255, 0.7) 0%, 
+        rgba(255, 255, 255, 0.3) 100%
+    );
     
-    border-radius: 12px;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    transition: transform 0.3s;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    
+    /* Bordas translúcidas simulando espessura 3D */
+    border-top: 1px solid rgba(255, 255, 255, 0.8);
+    border-left: 1px solid rgba(255, 255, 255, 0.8);
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    border-radius: 16px;
+    
+    padding: 2rem;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-    transform: none; 
+    transform: translateY(-5px); /* Flutuar levemente */
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.25);
 }
 
 .card h2 {
-    color: #333; /* Título cinza escuro */
+    color: #222;
     margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
 }
 
-/* LISTAS */
-ul {
-    list-style-type: none;
+/* Detalhe sublinhado no título */
+.card h2::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    margin-top: 5px;
+    border-radius: 2px;
 }
+
+/* Listas */
+ul { list-style-type: none; }
 
 .card ul li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
     padding-left: 1.5rem;
     position: relative;
 }
 
 .card ul li::before {
     content: "•";
-    color: #778899; /* Um cinza-azul suave para os bullets */
+    color: #6a11cb; /* Roxo para combinar com o tema */
     font-weight: bold;
     display: inline-block;
     width: 1em;
     margin-left: -1em;
 }
 
-
-/* SEÇÃO DE PROJETOS */
+/* --- PROJETOS --- */
 .project-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
 }
 
 .project-item {
-    /* Fundo interno para destacar, mas ainda sutil */
-    background-color: rgba(255, 255, 255, 0.6); 
+    /* Vidro dentro do vidro (Inception glass) */
+    background: rgba(255, 255, 255, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.4);
-    padding: 1rem;
-    border-radius: 8px;
+    padding: 1.5rem;
+    border-radius: 12px;
+    transition: background 0.3s;
+}
+
+.project-item:hover {
+    background: rgba(255, 255, 255, 0.5);
 }
 
 .project-item h3 {
-    color: #333;
     margin-bottom: 0.5rem;
+    font-size: 1.1rem;
 }
 
-.project-links {
-    margin-top: 1rem;
-}
+.project-links { margin-top: 1.2rem; }
 
 .project-link {
     display: inline-block;
-    padding: 8px 12px;
-    margin-right: 10px;
-    border-radius: 5px;
+    padding: 8px 16px;
+    border-radius: 20px;
     text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: bold;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: transform 0.2s;
 }
 
 .github-link {
-    background-color: #444; /* Um cinza um pouco mais claro para o GitHub */
+    background: linear-gradient(135deg, #444, #222);
     color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .github-link:hover {
-    background-color: #666;
+    transform: scale(1.05);
 }
 
-/* SEÇÃO DE CONTATO */
+/* --- CONTATO --- */
 .contact-buttons {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
 }
 
-/* Botões de contato com cor de destaque sutil */
-.contact-buttons .contact-button-link {
-    background-color: #a0aec0; /* Um cinza-azul médio para o botão */
-    color: white;
-    border: none;
-    padding: 0.8rem 1.4rem;
-    border-radius: 8px;
+.contact-button-link {
+    background: rgba(255, 255, 255, 0.5);
+    color: #333;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 0.8rem 1.5rem;
+    border-radius: 12px;
     cursor: pointer;
     font-weight: 600;
-    transition: background 0.3s;
-    text-decoration: none;  
+    transition: all 0.3s;
+    text-decoration: none;
 }
 
-.contact-buttons .contact-button-link:hover {
-    background-color: #8c9ba7; /* Tom um pouco mais escuro no hover */
+.contact-button-link:hover {
+    background: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    color: #6a11cb; /* Cor destaque ao passar o mouse */
 }
 
-/* RODAPÉ DE VIDRO SUTIL */
+/* --- FOOTER --- */
 footer {
     text-align: center;
-    padding: 1rem;
-    
-    background: rgba(255, 255, 255, 0.3);
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     border-top: 1px solid rgba(255, 255, 255, 0.2);
-    
-    color: #333;
+    color: #555;
     font-size: 0.9rem;
+    margin-top: 2rem;
 }
-/* --- ESTILO DO BOTÃO DE TEMA --- */
+
+/* --- BOTÃO DE TEMA --- */
 .theme-toggle {
-    background: rgba(255, 255, 255, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.6);
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     font-size: 1.2rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-left: 1rem; /* Espaçamento do nav */
-    backdrop-filter: blur(5px);
+    margin-left: 1rem;
+    backdrop-filter: blur(4px);
+    display: flex;       /* Centralizar emoji */
+    align-items: center;
+    justify-content: center;
 }
 
 .theme-toggle:hover {
-    background: rgba(255, 255, 255, 0.8);
-    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.9);
+    transform: rotate(15deg) scale(1.1);
 }
 
-/* --- MODO ESCURO --- */
-/* O JS adiciona data-theme="dark" ao body */
-body[data-theme="dark"] {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d3748 100%);
-    color: #e0e6ed;
-}
-
-body[data-theme="dark"] header {
-    background: rgba(0, 0, 0, 0.6);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-body[data-theme="dark"] .card {
-    background: rgba(0, 0, 0, 0.5); /* Vidro escuro */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-}
-
-body[data-theme="dark"] .card h2,
-body[data-theme="dark"] .header-title h1,
-body[data-theme="dark"] .project-item h3 {
-    color: #f0f2f5; /* Texto claro */
-}
-
-body[data-theme="dark"] .project-item {
-    background-color: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.1);
-}
-
-body[data-theme="dark"] header nav .nav-link {
-    color: #e0e6ed;
-}
-
-body[data-theme="dark"] header nav .nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
+/* --- ANIMAÇÃO DE DIGITAÇÃO --- */
 .typing::after {
     content: '|';
     animation: blink 1s infinite;
-    margin-left: 2px;
+    color: #6a11cb;
 }
 
 @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
+}
+
+/* --- MODO ESCURO --- */
+body[data-theme="dark"] {
+    background-color: #121212; /* Fundo base muito escuro */
+    color: #e0e6ed;
+}
+
+/* Ajuste dos orbes no modo escuro (mais sutis ou diferentes cores) */
+body[data-theme="dark"]::before {
+    opacity: 0.4;
+    background: linear-gradient(to right, #4c1d95, #2563eb); /* Roxo profundo */
+}
+body[data-theme="dark"]::after {
+    opacity: 0.4;
+    background: linear-gradient(to right, #be185d, #b91c1c); /* Vermelho/Rosa escuro */
+}
+
+/* Vidro Escuro */
+body[data-theme="dark"] .card,
+body[data-theme="dark"] header {
+    /* Gradiente branco muito fraco para simular vidro fumê */
+    background: linear-gradient(
+        135deg, 
+        rgba(255, 255, 255, 0.1) 0%, 
+        rgba(255, 255, 255, 0.05) 100%
+    );
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+body[data-theme="dark"] .card h2 { color: #fff; }
+body[data-theme="dark"] header nav .nav-link { color: #e0e6ed; }
+body[data-theme="dark"] header nav .nav-link:hover { background: rgba(255, 255, 255, 0.1); }
+body[data-theme="dark"] .project-item {
+    background: rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.05);
+}
+body[data-theme="dark"] .contact-button-link {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+body[data-theme="dark"] .contact-button-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+body[data-theme="dark"] footer {
+    background: rgba(0, 0, 0, 0.3);
+    color: #888;
+}
+
+/* --- RESPONSIVIDADE (MOBILE) --- */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .theme-toggle {
+        position: absolute;
+        top: 1.5rem;
+        right: 1rem;
+        margin-left: 0;
+    }
+
+    header nav .nav-link {
+        display: block; /* Links um abaixo do outro ou inline-block com margem maior */
+        margin: 0.5rem 0;
+    }
+    
+    /* Para não ficar uma lista gigante vertical, vamos manter inline mas permitir wrap */
+    header nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
