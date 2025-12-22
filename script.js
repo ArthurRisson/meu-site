@@ -1,4 +1,3 @@
-// Efeito de digitação no cabeçalho
 const text = [
   "Estudante de Ciências da Computação",
   "Desenvolvedor em formação",
@@ -23,7 +22,7 @@ function type() {
 }
 type();
 
-// Alternar tema claro/escuro
+
 const themeButton = document.querySelector(".theme-toggle");
 themeButton.addEventListener("click", () => {
   const isLight = document.body.getAttribute("data-theme") === "light";

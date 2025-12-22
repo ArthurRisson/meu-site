@@ -1,4 +1,4 @@
-/* COMPORTAMENTO GERAL */
+
 html {
     scroll-behavior: smooth;
 }
@@ -11,30 +11,26 @@ html {
 
 body {
     font-family: 'Segoe UI', sans-serif;
-    /* Fundo base neutro */
     background-color: #f0f2f5;
     color: #333;
     line-height: 1.6;
     min-height: 100vh;
     
-    /* Necessário para os orbes de fundo ficarem atrás do vidro */
     position: relative;
     overflow-x: hidden;
     z-index: 0;
 }
 
-/* --- ELEMENTOS DE FUNDO (ORBES COLORIDOS) --- */
 body::before, body::after {
     content: '';
     position: absolute;
     border-radius: 50%;
-    z-index: -1; /* Fica atrás de tudo */
-    filter: blur(80px); /* O "glow" suave das cores */
+    z-index: -1;
+    filter: blur(80px);
     opacity: 0.6;
     animation: floatOrb 10s infinite alternate ease-in-out;
 }
 
-/* Orbe 1 (Roxo/Azul) - Topo Esquerda */
 body::before {
     width: 400px;
     height: 400px;
@@ -43,14 +39,13 @@ body::before {
     left: -100px;
 }
 
-/* Orbe 2 (Laranja/Rosa) - Baixo Direita */
 body::after {
     width: 300px;
     height: 300px;
     background: linear-gradient(to right, #ff5f6d, #ffc371);
     bottom: 50px;
     right: -50px;
-    animation-delay: -5s; /* Começa em tempo diferente */
+    animation-delay: -5s;
 }
 
 @keyframes floatOrb {
@@ -58,9 +53,7 @@ body::after {
     100% { transform: translate(20px, 40px); }
 }
 
-/* --- HEADER (VIDRO FOSCO) --- */
 header {
-    /* Vidro mais transparente para o menu */
     background: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
@@ -71,7 +64,7 @@ header {
     padding: 1.5rem 1rem;
     position: sticky;
     top: 0;
-    z-index: 100; /* Garante que fica acima dos cards */
+    z-index: 100;
 }
 
 .header-container {
@@ -96,14 +89,13 @@ header {
     opacity: 0.8;
 }
 
-/* Navegação */
 header nav .nav-link {
     background: transparent;
     color: #333;
     border: none;
     margin: 0 0.2rem;
     padding: 0.5rem 1rem;
-    border-radius: 20px; /* Mais arredondado combina com vidro */
+    border-radius: 20px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -116,7 +108,6 @@ header nav .nav-link:hover {
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
-/* --- CONTEÚDO PRINCIPAL (CARDS DE VIDRO) --- */
 main {
     max-width: 900px;
     margin: 2rem auto;
@@ -124,8 +115,6 @@ main {
 }
 
 .card {
-    /* O SEGREDO DO GLASSMORPHISM */
-    /* Gradiente diagonal: Canto sup. esq. é mais branco (luz) */
     background: linear-gradient(
         135deg, 
         rgba(255, 255, 255, 0.7) 0%, 
@@ -135,7 +124,6 @@ main {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     
-    /* Bordas translúcidas simulando espessura 3D */
     border-top: 1px solid rgba(255, 255, 255, 0.8);
     border-left: 1px solid rgba(255, 255, 255, 0.8);
     border-right: 1px solid rgba(255, 255, 255, 0.3);
@@ -150,7 +138,7 @@ main {
 }
 
 .card:hover {
-    transform: translateY(-5px); /* Flutuar levemente */
+    transform: translateY(-5px);
     box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.25);
 }
 
@@ -161,7 +149,6 @@ main {
     display: inline-block;
 }
 
-/* Detalhe sublinhado no título */
 .card h2::after {
     content: '';
     display: block;
@@ -172,7 +159,6 @@ main {
     border-radius: 2px;
 }
 
-/* Listas */
 ul { list-style-type: none; }
 
 .card ul li {
@@ -183,14 +169,13 @@ ul { list-style-type: none; }
 
 .card ul li::before {
     content: "•";
-    color: #6a11cb; /* Roxo para combinar com o tema */
+    color: #6a11cb;
     font-weight: bold;
     display: inline-block;
     width: 1em;
     margin-left: -1em;
 }
 
-/* --- PROJETOS --- */
 .project-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -198,7 +183,6 @@ ul { list-style-type: none; }
 }
 
 .project-item {
-    /* Vidro dentro do vidro (Inception glass) */
     background: rgba(255, 255, 255, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.4);
     padding: 1.5rem;
@@ -237,7 +221,6 @@ ul { list-style-type: none; }
     transform: scale(1.05);
 }
 
-/* --- CONTATO --- */
 .contact-buttons {
     display: flex;
     flex-wrap: wrap;
@@ -259,10 +242,9 @@ ul { list-style-type: none; }
 .contact-button-link:hover {
     background: #fff;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    color: #6a11cb; /* Cor destaque ao passar o mouse */
+    color: #6a11cb;
 }
 
-/* --- FOOTER --- */
 footer {
     text-align: center;
     padding: 1.5rem;
@@ -274,7 +256,6 @@ footer {
     margin-top: 2rem;
 }
 
-/* --- BOTÃO DE TEMA --- */
 .theme-toggle {
     background: rgba(255, 255, 255, 0.4);
     border: 1px solid rgba(255, 255, 255, 0.6);
@@ -286,7 +267,7 @@ footer {
     transition: all 0.3s ease;
     margin-left: 1rem;
     backdrop-filter: blur(4px);
-    display: flex;       /* Centralizar emoji */
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -296,7 +277,6 @@ footer {
     transform: rotate(15deg) scale(1.1);
 }
 
-/* --- ANIMAÇÃO DE DIGITAÇÃO --- */
 .typing::after {
     content: '|';
     animation: blink 1s infinite;
@@ -308,26 +288,22 @@ footer {
     50% { opacity: 0; }
 }
 
-/* --- MODO ESCURO --- */
 body[data-theme="dark"] {
-    background-color: #121212; /* Fundo base muito escuro */
+    background-color: #121212;
     color: #e0e6ed;
 }
 
-/* Ajuste dos orbes no modo escuro (mais sutis ou diferentes cores) */
 body[data-theme="dark"]::before {
     opacity: 0.4;
-    background: linear-gradient(to right, #4c1d95, #2563eb); /* Roxo profundo */
+    background: linear-gradient(to right, #4c1d95, #2563eb);
 }
 body[data-theme="dark"]::after {
     opacity: 0.4;
-    background: linear-gradient(to right, #be185d, #b91c1c); /* Vermelho/Rosa escuro */
+    background: linear-gradient(to right, #be185d, #b91c1c);
 }
 
-/* Vidro Escuro */
 body[data-theme="dark"] .card,
 body[data-theme="dark"] header {
-    /* Gradiente branco muito fraco para simular vidro fumê */
     background: linear-gradient(
         135deg, 
         rgba(255, 255, 255, 0.1) 0%, 
@@ -360,7 +336,6 @@ body[data-theme="dark"] footer {
     color: #888;
 }
 
-/* --- RESPONSIVIDADE (MOBILE) --- */
 @media (max-width: 768px) {
     .header-container {
         flex-direction: column;
@@ -376,11 +351,10 @@ body[data-theme="dark"] footer {
     }
 
     header nav .nav-link {
-        display: block; /* Links um abaixo do outro ou inline-block com margem maior */
+        display: block;
         margin: 0.5rem 0;
     }
     
-    /* Para não ficar uma lista gigante vertical, vamos manter inline mas permitir wrap */
     header nav {
         display: flex;
         flex-wrap: wrap;
